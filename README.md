@@ -1,5 +1,5 @@
 # code-mel
-# سایت برنامه : https://github.com/x/x/blob/maing
+# سایت برنامه : https://code-meli.vercel.app
 
 ساز و کار این برنامه به ین شکله :
 

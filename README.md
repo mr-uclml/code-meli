@@ -5,12 +5,7 @@
 
 
 <img style="max-width:100%" src="./css/code mli.jpg">
-<br/>
+
 به دست اوردن رقم کنترل :
-
-
-
-.
-
 
 <img style="max-width:100%" src="./css/control number.jpg">

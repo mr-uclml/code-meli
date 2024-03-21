@@ -10,5 +10,5 @@
 <br/>
 به دست اوردن رقم کنترل :
 <br/>
-<img style="max-width:100%" src="./control number.jpg">
+<img style="max-width:100%" src="./css/control number.jpg">
 <br/>

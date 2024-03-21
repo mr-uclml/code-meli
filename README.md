@@ -5,5 +5,5 @@
 
 ساز و کار این برنامه به ین شکله 
 <br />
-<img style="max-width:100%" src="">
+<img style="max-width:100%" src="./code mli.jpg">
 <br />

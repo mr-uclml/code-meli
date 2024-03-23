@@ -12,9 +12,20 @@
     <button onclick="document.getElementById('codeMelliField').value = roundGenerator()">ساخت کدملی رند</button>
     <button onclick="validateCodeMelli()">بررسی صحت کد ملی</button>
 
-    
+    <!-- اضافه کردن لینک‌های به کدهای JavaScript -->
     <script src="/js/CodeValidator.js"></script>
     <script src="/js/CodeGenerator.js"></script>
     <script src="/js/CodeRoundGenerat.js"></script>
+
+    <script>
+        function validateCodeMelli() {
+            var codeMelli = document.getElementById('codeMelliField').value;
+            if (validator(codeMelli)) {
+                alert('کد ملی معتبر است.');
+            } else {
+                alert('کد ملی نامعتبر است.');
+            }
+        }
+    </script>
 </body>
 </html>

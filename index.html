@@ -17,7 +17,7 @@
     <script src="/js/CodeGenerator.js"></script>
     <script src="/js/CodeRoundGenerator.js"></script>
 
-    <div id="validationResult" style="text-align: center; margin-top: 10px;"></div>
+    <div id="validationResult" style="margin-top: 20px; font-size: 18px;"></div>
 
     <script>
         function validateCodeMelli() {
@@ -25,10 +25,21 @@
             var validationResultElement = document.getElementById('validationResult');
             if (validator(codeMelli)) {
                 validationResultElement.innerText = 'کد ملی معتبر است.';
+                validationResultElement.style.color = '#4CAF50'; /* Green */
+                document.getElementById('codeMelliField').style.color = '#4CAF50'; /* Green */
             } else {
                 validationResultElement.innerText = 'کد ملی نامعتبر است.';
+                validationResultElement.style.color = '#FF0000'; /* Red */
+                document.getElementById('codeMelliField').style.color = '#FF0000'; /* Red */
             }
         }
+
+        // اگر کاربر روی فیلد کد ملی کلیک کرد، فیلد را خالی کن
+        document.getElementById('codeMelliField').addEventListener('click', function() {
+            this.value = '';
+            this.style.color = ''; /* Reset text color */
+            document.getElementById('validationResult').innerText = '';
+        });
     </script>
 </body>
 </html>

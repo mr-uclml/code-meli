@@ -15,15 +15,18 @@
     <!-- اضافه کردن لینک‌های به کدهای JavaScript -->
     <script src="/js/CodeValidator.js"></script>
     <script src="/js/CodeGenerator.js"></script>
-    <script src="/js/CodeRoundGenerat.js"></script>
+    <script src="/js/CodeRoundGenerator.js"></script>
+
+    <div id="validationResult" style="text-align: center; margin-top: 10px;"></div>
 
     <script>
         function validateCodeMelli() {
             var codeMelli = document.getElementById('codeMelliField').value;
+            var validationResultElement = document.getElementById('validationResult');
             if (validator(codeMelli)) {
-                alert('کد ملی معتبر است.');
+                validationResultElement.innerText = 'کد ملی معتبر است.';
             } else {
-                alert('کد ملی نامعتبر است.');
+                validationResultElement.innerText = 'کد ملی نامعتبر است.';
             }
         }
     </script>

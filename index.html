@@ -17,7 +17,7 @@
     <script src="/js/CodeGenerator.js"></script>
     <script src="/js/CodeRoundGenerator.js"></script>
 
-    <div id="validationResult" style="margin-top: 20px; font-size: 18px;"></div>
+    <div id="validationResult"></div>
 
     <script>
         function validateCodeMelli() {
@@ -34,11 +34,9 @@
             }
         }
 
-        // اگر کاربر روی فیلد کد ملی کلیک کرد، فیلد را خالی کن
         document.getElementById('codeMelliField').addEventListener('click', function() {
             this.value = '';
-            this.style.color = ''; /* Reset text color */
-            document.getElementById('validationResult').innerText = '';
+            this.style.color = '#fff'; /* White */
         });
     </script>
 </body>

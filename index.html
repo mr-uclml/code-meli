@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>صفحه کد ملی</title>
+<title>کد ملی</title>
 </head>
 <body>
 
@@ -19,45 +19,7 @@
 <p id="result"></p>
 
 <script>
-function validateNationalCode() {
-    var nationalCode = document.getElementById("nationalCodeInput").value;
-    var isValid = validator(nationalCode);
-    if (isValid) {
-        document.getElementById("result").innerText = "کد ملی معتبر است.";
-    } else {
-        document.getElementById("result").innerText = "کد ملی نامعتبر است.";
-    }
-}
-
-function generateRandomNationalCode() {
-    var randomNationalCode = generateRandomValidNationalCode();
-    document.getElementById("nationalCodeInput").value = randomNationalCode;
-}
-
-function makeNationalCode() {
-    var createdNationalCode = generateRandomValidNationalCode();
-    document.getElementById("nationalCodeInput").value = createdNationalCode;
-}
-
-// تولید کد ملی رندم و معتبر
-function generateRandomValidNationalCode() {
-    var randomNationalCode = "";
-    // الگوریتم برای تولید کد ملی رندم و معتبر اینجا قرار بگیرد
-    // مثال ساده:
-    for (var i = 0; i < 10; i++) {
-        randomNationalCode += Math.floor(Math.random() * 10);
-    }
-    while (!validator(randomNationalCode)) {
-        randomNationalCode = "";
-        for (var i = 0; i < 10; i++) {
-            randomNationalCode += Math.floor(Math.random() * 10);
-        }
-    }
-    return randomNationalCode;
-}
-
-// تابع بررسی صحت کد ملی
-function validator(val) {
+function validator(val) { 
     var allDigitEqual = ["0000000000", "1111111111", "2222222222", "3333333333", "4444444444", "5555555555", "6666666666", "7777777777", "8888888888", "9999999999"];
     codeMelliPattern = /^([0-9]{10})+$/;
     if (allDigitEqual.indexOf(val) != -1 || !codeMelliPattern.test(val)) {
@@ -77,6 +39,30 @@ function validator(val) {
     var b = (((((((num0 + num2) + num3) + num4) + num5) + num6) + num7) + num8) + num9;
     var c = b % 11;
     return (((c < 2) && (a == c)) || ((c >= 2) && ((11 - c) == a)));
+}
+
+function validateNationalCode() {
+    var nationalCode = document.getElementById("nationalCodeInput").value;
+    if (validator(nationalCode)) {
+        document.getElementById("result").innerText = "کد ملی معتبر است.";
+    } else {
+        document.getElementById("result").innerText = "کد ملی نامعتبر است.";
+    }
+}
+
+function generateRandomNationalCode() {
+    var randomNationalCode = "";
+    for (var i = 0; i < 10; i++) {
+        randomNationalCode += Math.floor(Math.random() * 10);
+    }
+    document.getElementById("nationalCodeInput").value = randomNationalCode;
+}
+
+function makeNationalCode() {
+    // در اینجا می‌توانید از یک الگوریتم برای ساخت کد ملی استفاده کنید.
+    // برای مثال:
+    var createdNationalCode = "1234567890"; // باید تابع مربوطه را پیاده‌سازی کنید
+    document.getElementById("nationalCodeInput").value = createdNationalCode;
 }
 </script>
 

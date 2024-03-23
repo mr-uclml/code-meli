@@ -32,14 +32,18 @@ function validateNationalCode() {
 }
 
 function generateRandomNationalCode() {
-    // تولید کد ملی رندم
-    var randomNationalCode = ""; // این قسمت را با الگوریتم مورد نظر خود پر کنید
+    var randomNationalCode = ""; // این قسمت را با الگوریتم تولید کد ملی رندم جایگزین کنید
+    for (var i = 0; i < 10; i++) {
+        randomNationalCode += Math.floor(Math.random() * 10);
+    }
     document.getElementById("nationalCodeInput").value = randomNationalCode;
 }
 
 function makeNationalCode() {
-    // این قسمت را با الگوریتم مورد نظر خود پر کنید
-    var createdNationalCode = ""; // این قسمت را با الگوریتم مورد نظر خود پر کنید
+    var createdNationalCode = ""; // این قسمت را با الگوریتم ساخت کد ملی خود جایگزین کنید
+    for (var i = 0; i < 10; i++) {
+        createdNationalCode += Math.floor(Math.random() * 10);
+    }
     document.getElementById("nationalCodeInput").value = createdNationalCode;
 }
 </script>

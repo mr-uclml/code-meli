@@ -1,143 +1,48 @@
-<html><head>
-    <title>تولید کننده کد ملی</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="ساخت و ایجاد یک کد ملی به سادگی انجام میشود و برای صحت و بررسی و تست کد ملی این پیج ساخته شده است. تولید کد ملی رند و شماره ملی ایران و ایرانی رندم است" name="description">
-    <meta content="کد ملی صحیح , کد ملی ایران , کدملی , کد ملی رندم , کد ملی شانسی , کد ملی تستی , تست کد ملی , اعتبار سنجی کد ملی , اعتبارسنجی کد ملی , صحت کد ملی ایران , تولید کد ملی معتبر, ایجاد کد ملی درست ,  ساخت کد ملی رند" name="keywords">
-    <meta content="index,follow,archive" name="robots">
-    
-    <script src="https://github.com/mr-uclml/code-meli/raw/main/js/CodeGenerator.js"></script>
-    <script src="https://raw.githubusercontent.com/mr-uclml/code-meli/main/js/CodeRoundGenerat.js"></script>
-    <script src="https://raw.githubusercontent.com/mr-uclml/code-meli/main/js/CodeValidator.js"></script>
-    <style>
-      span {
-        display: inline-block;
-        font-size: 23px;
-        padding: 0 25px;
-        background: #000;
-        color: #fff;
-        border-radius: 7px;
-        cursor: pointer;
-        height: 50px;
-        line-height: 50px;
-        box-sizing: border-box;
-        vertical-align: middle;
-        margin: 10px;
-      }
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>صفحه کد ملی</title>
+</head>
+<body>
 
-      span.mini {
-        font-size: 15px;
-      }
+<h2>کد ملی</h2>
+<p>لطفا کد ملی خود را وارد نمایید:</p>
 
-      .for-seo {
-        position: absolute;
-        top: -9999px;
-        left: -9999px;
-      }
+<input type="text" id="nationalCodeInput" placeholder="کد ملی">
 
-      .center-box {
-        margin: 20px auto;
-        max-width: 500px;
-        text-align: center;
-      }
+<button onclick="validateNationalCode()">برسی صحت</button>
+<button onclick="generateRandomNationalCode()">ساخت کد ملی رندم</button>
+<button onclick="makeNationalCode()">ساخت کد ملی</button>
 
-      body {
-        padding-top: 5vw;
-        padding-bottom: 30vh;
-        font-family: iransans,vazir,samim,shabnam,nazanin,bnazanin,tahoma;
-      }
+<p id="result"></p>
 
-      input,#codeValidatorResult,#codeGeneratorResult {
-        border: 2px solid #000;
-        padding: 0px 10px;
-        text-align: center;
-        background: #f2f2f2;
-        font-size: 25px;
-        border-radius: 7px;
-        height: 50px !important;
-        line-height: 50px;
-        box-sizing: border-box;
-        vertical-align: middle;
-        min-width: 200px;
-        margin:10px;
-      }
+<script>
+function validateNationalCode() {
+    var nationalCode = document.getElementById("nationalCodeInput").value;
+    // الگوریتم بررسی صحت کد ملی را اعمال کنید
 
-      .github-link {
-        background: black;
-        color: white;
-        padding: 5px 15px;
-        border-radius: 5px;
-        text-decoration: none;
-        height: 35px;
-        display: inline-block;
-        line-height: 2.3;
-        letter-spacing: .6px;
-        font-family: cursive;
-      }
-
-      .github-link svg {
-        fill: yellow;
-        float: left;
-        padding-right: 10px;
-      }
-    .fix-bottom-ad {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        background: #00a97f;
-        padding: 2vh;
-        text-align: center;
-        box-sizing: border-box;
+    // مثال ساده:
+    if (nationalCode.length === 10) {
+        document.getElementById("result").innerText = "کد ملی معتبر است.";
+    } else {
+        document.getElementById("result").innerText = "کد ملی نامعتبر است.";
     }
-    
-    .fix-bottom-ad b {
-        background:yellow;
-        padding:3px 5px;
-        border-radius:5px;
-        font-size: 1.8vh;
-    }
-    </style>
-  </head>
-  <body>
-   
-    <div class="for-seo">
-      <h1>تولید کد ملی</h1>
-      <p>کارت شناسایی ملی یک کد دارای یکسری قوانین خاص است که هر عدد 10 رقمی نمتواند یک کد باشد از این رو برای شما این صفحه آماده سازی شده تا تولید کننده یک کد ملی و بررسی صحت کد ملی باشد</p>
-      <h2>تشخیص صحت کد ملی</h2><h2>j,gdn ;n lgd - ;n lgd vkn</h2>
-      <p>در امروز بیشتره نرم‌افزارها برای تولید کد ملی نیاز به استفاده از کد ملی به عنوان یک پارامتر منحصر به فرد و یونیک برای اطلاعات فردی دارند.</p>
-      <h3>تشخیص صحت کد ملی - کد ملی ساز - الگوریتم تشخیص</h3>
-      <p>ساخت و ایجاد یک کد ملی به سادگی انجام میشود و برای صحت و بررسی و تست کد ملی این پیج ساخته شده است. تولید کد ملی رند و شماره ملی ایران و ایرانی رندم است و کمک برنامه نویسان کد جاوا</p>
-      <h4>ساخت کد ملی معتبر</h4>
-    </div>
-    <div class="center-box">
-      <span onclick="codeRoundGenerator()">ساخت کد ملی رند</span>
-      <span onclick="codeGenerator()">شاخت کد ملی</span>
-      <div id="codeGeneratorResult"></div>
-    </div>
-    <hr style="margin: 5vh 0">
-    <div class="center-box">
-      <input type="text" id="codeValidatorInput" placeholder="کد ملی را وارد کنید" style="max-width: 160px;padding: 10px;" maxlength="13">
-      <span onclick="codeValidator()" class="mini">بررسی صحت کد ملی</span>
-      <div id="codeValidatorResult"></div>
-    
-      function codeGenerator() {
-        document.getElementById("codeGeneratorResult").innerText = generator();
-      }
+}
 
-      function codeRoundGenerator() {
-        document.getElementById("codeGeneratorResult").innerText = roundGenerator();
-      }
+function generateRandomNationalCode() {
+    // تولید کد ملی رندم
+    var randomNationalCode = ""; // این قسمت را با الگوریتم مورد نظر خود پر کنید
+    document.getElementById("nationalCodeInput").value = randomNationalCode;
+}
 
-      function codeValidator() {
-        if (validator(document.getElementById("codeValidatorInput").value)) {
-          document.getElementById("codeValidatorResult").innerHTML = "<b style='color:green'> صحیح </b>"
-        } else {
-          document.getElementById("codeValidatorResult").innerHTML = "<b style='color:red'> ناصحیح </b>"
-        }
-      }
-    </script>
-  
+function makeNationalCode() {
+    // این قسمت را با الگوریتم مورد نظر خود پر کنید
+    var createdNationalCode = ""; // این قسمت را با الگوریتم مورد نظر خود پر کنید
+    document.getElementById("nationalCodeInput").value = createdNationalCode;
+}
+</script>
 
-</body></html>
+</body>
+</html>

@@ -30,6 +30,9 @@ button {
 button:hover {
     background-color: #45a049; /* Darker Green */
 }
+#copyButton {
+            display: none;
+        }
 
 #validationResult {
     margin-top: 20px;

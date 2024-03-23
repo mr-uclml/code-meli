@@ -36,3 +36,11 @@ button:hover {
     font-size: 18px;
     color: #4CAF50; /* Green */
 }
+
+#codeMelliField {
+    color: #f00; /* Red */
+}
+
+#validationResult.wrong {
+    color: #f00; /* Red */
+}

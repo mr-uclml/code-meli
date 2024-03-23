@@ -5,19 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ساخت کد ملی</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        body {
+            font-family: 'Tahoma', sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #333; /* Dark Grey */
+            color: #fff; /* White */
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #666; /* Medium Grey */
+            border-radius: 5px;
+            outline: none;
+            background-color: #444; /* Darker Grey */
+            color: #fff; /* White */
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            background-color: #4CAF50; /* Green */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049; /* Darker Green */
+        }
+
+        #validationResult {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #4CAF50; /* Green */
+        }
+
+        #copyButton {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <input type="text" id="codeMelliField" placeholder="کد ملی را وارد کنید">
     <button onclick="document.getElementById('codeMelliField').value = generator()">ساخت کدملی</button>
     <button onclick="document.getElementById('codeMelliField').value = roundGenerator()">ساخت کدملی رند</button>
     <button onclick="validateCodeMelli()">بررسی صحت کد ملی</button>
+    <button id="copyButton" onclick="copyCodeMelli()">کپی</button>
+    <div id="validationResult" style="margin-top: 20px; font-size: 18px;"></div>
 
-    <!-- اضافه کردن لینک‌های به کدهای JavaScript -->
     <script src="/js/CodeValidator.js"></script>
     <script src="/js/CodeGenerator.js"></script>
-    <script src="/js/CodeRoundGenerator.js"></script>
-
-    <div id="validationResult"></div>
+    <script src="/js/CodeRoundGenerat.js"></script>
 
     <script>
         function validateCodeMelli() {
@@ -27,16 +70,27 @@
                 validationResultElement.innerText = 'کد ملی معتبر است.';
                 validationResultElement.style.color = '#4CAF50'; /* Green */
                 document.getElementById('codeMelliField').style.color = '#4CAF50'; /* Green */
+                document.getElementById('copyButton').style.display = 'inline-block';
             } else {
                 validationResultElement.innerText = 'کد ملی نامعتبر است.';
-                validationResultElement.style.color = '#FF0000'; /* Red */
-                document.getElementById('codeMelliField').style.color = '#FF0000'; /* Red */
+                validationResultElement.style.color = '#f44336'; /* Red */
+                document.getElementById('codeMelliField').style.color = '#f44336'; /* Red */
+                document.getElementById('copyButton').style.display = 'none';
             }
+        }
+
+        function copyCodeMelli() {
+            var codeMelliField = document.getElementById('codeMelliField');
+            codeMelliField.select();
+            document.execCommand('copy');
+            alert('کد ملی کپی شد: ' + codeMelliField.value);
         }
 
         document.getElementById('codeMelliField').addEventListener('click', function() {
             this.value = '';
+            document.getElementById('validationResult').innerText = '';
             this.style.color = '#fff'; /* White */
+            document.getElementById('copyButton').style.display = 'none';
         });
     </script>
 </body>

@@ -21,10 +21,8 @@
 <script>
 function validateNationalCode() {
     var nationalCode = document.getElementById("nationalCodeInput").value;
-    // الگوریتم بررسی صحت کد ملی را اعمال کنید
-
-    // مثال ساده:
-    if (nationalCode.length === 10) {
+    var isValid = validator(nationalCode);
+    if (isValid) {
         document.getElementById("result").innerText = "کد ملی معتبر است.";
     } else {
         document.getElementById("result").innerText = "کد ملی نامعتبر است.";
@@ -32,19 +30,53 @@ function validateNationalCode() {
 }
 
 function generateRandomNationalCode() {
-    var randomNationalCode = ""; // این قسمت را با الگوریتم تولید کد ملی رندم جایگزین کنید
-    for (var i = 0; i < 10; i++) {
-        randomNationalCode += Math.floor(Math.random() * 10);
-    }
+    var randomNationalCode = generateRandomValidNationalCode();
     document.getElementById("nationalCodeInput").value = randomNationalCode;
 }
 
 function makeNationalCode() {
-    var createdNationalCode = ""; // این قسمت را با الگوریتم ساخت کد ملی خود جایگزین کنید
-    for (var i = 0; i < 10; i++) {
-        createdNationalCode += Math.floor(Math.random() * 10);
-    }
+    var createdNationalCode = generateRandomValidNationalCode();
     document.getElementById("nationalCodeInput").value = createdNationalCode;
+}
+
+// تولید کد ملی رندم و معتبر
+function generateRandomValidNationalCode() {
+    var randomNationalCode = "";
+    // الگوریتم برای تولید کد ملی رندم و معتبر اینجا قرار بگیرد
+    // مثال ساده:
+    for (var i = 0; i < 10; i++) {
+        randomNationalCode += Math.floor(Math.random() * 10);
+    }
+    while (!validator(randomNationalCode)) {
+        randomNationalCode = "";
+        for (var i = 0; i < 10; i++) {
+            randomNationalCode += Math.floor(Math.random() * 10);
+        }
+    }
+    return randomNationalCode;
+}
+
+// تابع بررسی صحت کد ملی
+function validator(val) {
+    var allDigitEqual = ["0000000000", "1111111111", "2222222222", "3333333333", "4444444444", "5555555555", "6666666666", "7777777777", "8888888888", "9999999999"];
+    codeMelliPattern = /^([0-9]{10})+$/;
+    if (allDigitEqual.indexOf(val) != -1 || !codeMelliPattern.test(val)) {
+        return false;
+    }
+    var chArray = Array.from(val);
+    var num0 = parseInt(chArray[0]) * 10;
+    var num2 = parseInt(chArray[1]) * 9;
+    var num3 = parseInt(chArray[2]) * 8;
+    var num4 = parseInt(chArray[3]) * 7;
+    var num5 = parseInt(chArray[4]) * 6;
+    var num6 = parseInt(chArray[5]) * 5;
+    var num7 = parseInt(chArray[6]) * 4;
+    var num8 = parseInt(chArray[7]) * 3;
+    var num9 = parseInt(chArray[8]) * 2;
+    var a = parseInt(chArray[9]);
+    var b = (((((((num0 + num2) + num3) + num4) + num5) + num6) + num7) + num8) + num9;
+    var c = b % 11;
+    return (((c < 2) && (a == c)) || ((c >= 2) && ((11 - c) == a)));
 }
 </script>
 

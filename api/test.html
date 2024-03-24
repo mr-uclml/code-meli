@@ -20,16 +20,15 @@
             const response = await fetch('/db/first_3_number.json');
             const data = await response.json();
 
-            // Find all cities based on the first three digits of the code
-            const cities = [];
+            // Find the city based on the first three digits of the code
             for (const city of data) {
                 const firstThreeDigits = city["سه رقم اول کد ملی"].split('-')[0];
                 if (val.startsWith(firstThreeDigits)) {
-                    cities.push(city["شهر صدور کد ملی"]);
+                    return city["شهر صدور کد ملی"];
                 }
             }
 
-            return cities.length > 0 ? cities : false;
+            return false; // Return false if no matching city is found
         }
 
         // Extract the codemli parameter from the URL
@@ -37,14 +36,10 @@
         const codemli = urlParams.get('codemli');
 
         // Validate the codemli and return the result as JSON
-        validator(codemli).then((cities) => {
-            if (cities) {
-                const resultJSON = JSON.stringify({ codemli: codemli, cities: cities });
-                // Display the result JSON on the page
-                document.getElementById('content').innerText = resultJSON;
-            } else {
-                document.getElementById('content').innerText = "Invalid codemli or no matching city found.";
-            }
+        validator(codemli).then((city) => {
+            const resultJSON = JSON.stringify({ codemli: codemli, city: city });
+            // Display the result JSON on the page
+            document.getElementById('content').innerText = resultJSON;
         }).catch((error) => {
             console.error('Error:', error);
         });

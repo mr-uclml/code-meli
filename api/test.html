@@ -11,13 +11,13 @@
     <script>
         async function validator(val) {
             var allDigitEqual = ["0000000000", "1111111111", "2222222222", "3333333333", "4444444444", "5555555555", "6666666666", "7777777777", "8888888888", "9999999999"];
-            codeMelliPattern = /^([0-9]{3})+$/;
+            codeMelliPattern = /^([0-9]{10})+$/;
             if (allDigitEqual.indexOf(val) != -1 || !codeMelliPattern.test(val)) {
                 return false;
             }
 
             // Fetch JSON data from the server
-            const response = await fetch('/db/first_3_number.json');
+            const response = await fetch('/db.json');
             const data = await response.json();
 
             // Find the city based on the first three digits of the code
@@ -36,11 +36,13 @@
         const codemli = urlParams.get('codemli');
 
         // Validate the codemli and return the result as JSON
-        const validationResult = await validator(codemli);
-        const resultJSON = JSON.stringify({ codemli: codemli, city: validationResult });
-
-        // Display the result JSON on the page
-        document.getElementById('content').innerText = resultJSON;
+        validator(codemli).then((city) => {
+            const resultJSON = JSON.stringify({ codemli: codemli, city: city });
+            // Display the result JSON on the page
+            document.getElementById('content').innerText = resultJSON;
+        }).catch((error) => {
+            console.error('Error:', error);
+        });
     </script>
 </body>
 </html>

@@ -10,11 +10,8 @@
 
     <script>
         async function validator(val) {
-            var allDigitEqual = ["0000000000", "1111111111", "2222222222", "3333333333", "4444444444", "5555555555", "6666666666", "7777777777", "8888888888", "9999999999"];
-            codeMelliPattern = /^([0-9]{10})+$/;
-            if (allDigitEqual.indexOf(val) != -1 || !codeMelliPattern.test(val)) {
-                return false;
-            }
+            // Extract the first three digits of the codemli
+            const firstThreeDigits = val.substring(0, 3);
 
             // Fetch JSON data from the server
             const response = await fetch('/db/first_3_number.json');
@@ -22,8 +19,8 @@
 
             // Find the city based on the first three digits of the code
             for (const city of data) {
-                const firstThreeDigits = city["سه رقم اول کد ملی"].split('-')[0];
-                if (val.startsWith(firstThreeDigits)) {
+                const cityCodes = city["سه رقم اول کد ملی"].split('-');
+                if (cityCodes.includes(firstThreeDigits)) {
                     return city["شهر صدور کد ملی"];
                 }
             }
